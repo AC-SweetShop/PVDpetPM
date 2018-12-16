@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470921754649734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.45, y: 2.88, z: -1}
+  m_LocalPosition: {x: 2, y: 1, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,7 +72,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1470921754649734}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8f3f76d7460884296aa7091e5d598e2c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f9fdf87cbaf4121ac99d1926469499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  maxSpeed: 1
+  speed: 1
+  maxSpeed: 2
 --- !u!212 &212831950150802284
 SpriteRenderer:
   m_ObjectHideFlags: 1

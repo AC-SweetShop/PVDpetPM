@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: 583d4840bcef7784a89ae576e0bf6e92
+guid: 9a24dfc21c315a14786e932f86148da3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Forest_terrain_red_128px_0
-    21300002: Forest_terrain_red_128px_1
-    21300004: Forest_terrain_red_128px_2
-    21300006: Forest_terrain_red_128px_3
+    21300000: Forest_deco_trees_0
+    21300002: Forest_deco_trees_1
+    21300004: Forest_deco_trees_2
+    21300006: Forest_deco_trees_3
+    21300008: Forest_deco_trees_4
+    21300010: Forest_deco_trees_5
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -25,6 +27,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -35,7 +39,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -47,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +101,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Forest_terrain_red_128px_0
+      name: Forest_deco_trees_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,13 +115,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2de4d78eb2f11648b2f62ebfa8b1784
+      spriteID: 2717660e8ebda2b469df0f1f3d0704cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_terrain_red_128px_1
+      name: Forest_deco_trees_1
       rect:
         serializedVersion: 2
         x: 128
@@ -131,13 +135,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d922c9ba9dccec047af45cd16ad15641
+      spriteID: dc551d5b5844cc74381b0c5a9ab32b9a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_terrain_red_128px_2
+      name: Forest_deco_trees_2
       rect:
         serializedVersion: 2
         x: 256
@@ -151,13 +155,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a7ada876c8834749ae719a9c407ff62
+      spriteID: 2beb69c3aab4fa5449f5f45c889b218b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Forest_terrain_red_128px_3
+      name: Forest_deco_trees_3
       rect:
         serializedVersion: 2
         x: 384
@@ -171,7 +175,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50b9cd0441527814d968f2489bed6a4b
+      spriteID: c5b8d48b3d7077645aaeca1eed57accc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_deco_trees_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5bdd2411a3e2b49b0dafb0a473977d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forest_deco_trees_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a4ecb2637aeb14a8b42c8d35db464d
       vertices: []
       indices: 
       edges: []
@@ -179,12 +223,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4677a0bd8ad6a214aba2420eda3c4477
+    spriteID: 56f5cde3509834f448807040496edf1e
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

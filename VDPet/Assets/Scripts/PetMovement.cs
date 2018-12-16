@@ -24,23 +24,24 @@ public class PetMovement : MonoBehaviour {
 		//limitamos la velocidad, de tal forma que la velocidad en el eje x puede ser maxSpeed positivo o negativo
 		float limitedSpeed = Mathf.Clamp(rb2d.velocity.x,-maxSpeed,maxSpeed);
 		//establecemos una nueva velocidad al rigidbody del pet
-		rb2d.velocity = new Vector2(limitedSpeed,rb2d.velocity.y);
+		rb2d.velocity = new Vector2(limitedSpeed,0);
 
 		//si la velocidad en x es mayor que el numero negativo y menor que el positivo se cambia el sentido de la velocidad
-		if(rb2d.velocity.x == 0){
+		if(rb2d.velocity.x > -0.1f && rb2d.velocity.x < 0.1f){
 			//cambiamos el sentido de la velocidad
 			speed= -speed;
 			//se lo agregamos a la velocidad del rigidbody del pet
-			rb2d.velocity = new Vector2(speed,rb2d.velocity.y);
+			rb2d.velocity = new Vector2(speed,0);
 
 		}
 
-		if(speed < 0){
+		if(speed<0){
 			transform.localScale = new Vector3(1f,1f,1f);
 		}
 
-		if(speed > 0){
-			transform.localScale = new Vector3(-1f,1f, 1f);
+		if(speed>0){
+			transform.localScale = new Vector3(-1f,1f,1f);
 		}
+
 	}
 }
