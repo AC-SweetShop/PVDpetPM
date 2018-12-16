@@ -22,10 +22,11 @@ GameObject:
   - component: {fileID: 212831950150802284}
   - component: {fileID: 95996180014435970}
   - component: {fileID: 50064499094603246}
-  - component: {fileID: 58388354945876762}
+  - component: {fileID: 60344154929634300}
+  - component: {fileID: 114750871388584904}
   m_Layer: 0
   m_Name: Tsunomon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470921754649734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.78, y: 3.26, z: 0}
+  m_LocalPosition: {x: 4.45, y: 2.88, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 6.1994276
+  m_Mass: 6.2182255
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -62,9 +63,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &58388354945876762
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!60 &60344154929634300
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,9 +76,47 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08831239, y: -0.81689024}
-  serializedVersion: 2
-  m_Radius: 1.4047558
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.266667, y: 4.266667}
+    newSize: {x: 4.266667, y: 4.266667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.3432364, y: -0.5305673}
+      - {x: 1.344665, y: -0.25096357}
+      - {x: 1.0767047, y: -0.24828494}
+      - {x: 1.0776856, y: 0.02176094}
+      - {x: 0.27754703, y: 0.025756836}
+      - {x: 0.2679814, y: 0.8114033}
+      - {x: 0.00952965, y: 0.8096101}
+      - {x: 0.0067737103, y: 1.0722358}
+      - {x: -0.27124774, y: 1.0723895}
+      - {x: -0.27652746, y: 0.81339514}
+      - {x: -0.5412489, y: 0.81569904}
+      - {x: -0.5342225, y: -0.013563871}
+      - {x: -0.8483951, y: -0.017484784}
+      - {x: -0.84262955, y: -0.270396}
+      - {x: -1.0862212, y: -0.27995622}
+      - {x: -1.079635, y: -0.5328853}
+      - {x: -1.3392088, y: -0.527966}
+      - {x: -1.3389351, y: -1.6111848}
+      - {x: -1.0747008, y: -1.6117857}
+      - {x: -1.0691969, y: -1.8729334}
+      - {x: -0.8032131, y: -1.8664272}
+      - {x: -0.80276513, y: -2.1378586}
+      - {x: 1.0749724, y: -2.1333334}
+      - {x: 1.1104424, y: -1.8572111}
+      - {x: 1.3215351, y: -1.8383033}
+      - {x: 1.3718055, y: -1.6133564}
+      - {x: 1.6280575, y: -1.5931075}
+      - {x: 1.6071614, y: -0.5333333}
+      - {x: 1.6001384, y: -0.5351324}
 --- !u!95 &95996180014435970
 Animator:
   serializedVersion: 3
@@ -96,6 +135,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114750871388584904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470921754649734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f9fdf87cbaf4121ac99d1926469499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  maxSpeed: 1
 --- !u!212 &212831950150802284
 SpriteRenderer:
   m_ObjectHideFlags: 1
