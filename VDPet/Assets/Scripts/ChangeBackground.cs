@@ -9,6 +9,7 @@ public class ChangeBackground : MonoBehaviour
     public Texture day;
     public Texture night;
     public InteractiveElement button;
+    public GameObject bubble;
 
     private Renderer rend;
     public bool isDay;
@@ -20,11 +21,13 @@ public class ChangeBackground : MonoBehaviour
             if (isDay)
             {
                 isDay = false;
+                bubble.SetActive(true);
                 rend.material.mainTexture = night;
             }
             else
             {
                 isDay = true;
+                bubble.SetActive(false);
                 rend.material.mainTexture = day;
             }
             button.pressed = false;
