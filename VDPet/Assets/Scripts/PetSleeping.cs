@@ -5,23 +5,29 @@ using UnityEngine;
 public class PetSleeping : MonoBehaviour
 {
     private Animator anim;
-    public InteractiveElement lightButton;
+    public ChangeBackground sky;
+
+    private bool sleep;
     // Start is called before the first frame update
     void Start()
     {
+        sleep = true;
         anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (lightButton.pressed)
-        {
-            anim.SetBool("isSleep", true);
-        }
-        else
+        if (sky.isDay && sleep)
         {
             anim.SetBool("isSleep", false);
+            sleep = false;
+        }
+        
+        if(!sky.isDay && !sleep)
+        {
+            anim.SetBool("isSleep", true);
+            sleep = true;
         }
         
     }

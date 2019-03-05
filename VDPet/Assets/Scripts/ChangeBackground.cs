@@ -20,12 +20,12 @@ public class ChangeBackground : MonoBehaviour
             if (isDay)
             {
                 isDay = false;
-                rend.material.mainTexture = day;
+                rend.material.mainTexture = night;
             }
             else
             {
                 isDay = true;
-                rend.material.mainTexture = night;
+                rend.material.mainTexture = day;
             }
             button.pressed = false;
         }
