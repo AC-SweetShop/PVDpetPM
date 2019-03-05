@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundAnimation : MonoBehaviour
+public class MatrixEvolution : MonoBehaviour
 {
-    public float speed = 0f;
-
     // Start is called before the first frame update
     void Start()
     {
