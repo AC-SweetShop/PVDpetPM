@@ -19,8 +19,6 @@ public class PetMovement : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-
-
     }
 
     // Update is called once per frame
