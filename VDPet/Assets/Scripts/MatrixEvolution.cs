@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class MatrixEvolution : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public RuntimeAnimatorController[] evolveLine = new RuntimeAnimatorController[24];
+
+  //  public Stats stats;
+    public bool evolve = false;
+    private int phase = 0;
+    public GameObject pet;
+
+
+    public void Start()
     {
-        
+        /*
+       if(stats.line == "first")
+        {
+
+        }
+        else if(stats.line == "second")
+        {
+
+        }
+        */
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (evolve)
+        {
+            evolve = false;
+            phase++;
+
+            pet.GetComponent<Animator>().runtimeAnimatorController = evolveLine[phase];
+        }
     }
 }
