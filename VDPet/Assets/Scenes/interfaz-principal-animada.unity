@@ -285,6 +285,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2871648537126551810, guid: 17fde5e4c4d36dc4db24de4251ace290,
+        type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871648536262444464, guid: 17fde5e4c4d36dc4db24de4251ace290,
+        type: 3}
+      propertyPath: m_TagString
+      value: sky
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871648536262444462, guid: 17fde5e4c4d36dc4db24de4251ace290,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17fde5e4c4d36dc4db24de4251ace290, type: 3}
 --- !u!1001 &6878655744994742555
@@ -296,11 +311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1263128766, guid: e61f588a21b2c7f468c11fcf1b3e69cd, type: 3}
       propertyPath: m_Name
-      value: Punimon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263128766, guid: e61f588a21b2c7f468c11fcf1b3e69cd, type: 3}
-      propertyPath: m_TagString
-      value: Player
+      value: Pet
       objectReference: {fileID: 0}
     - target: {fileID: 1263128768, guid: e61f588a21b2c7f468c11fcf1b3e69cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -308,7 +319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1263128768, guid: e61f588a21b2c7f468c11fcf1b3e69cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.13
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 1263128768, guid: e61f588a21b2c7f468c11fcf1b3e69cd, type: 3}
       propertyPath: m_LocalPosition.z
