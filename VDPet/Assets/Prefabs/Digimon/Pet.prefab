@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 1263128772}
   - component: {fileID: 1263128773}
   - component: {fileID: 3428033689378341990}
-  - component: {fileID: 1263128767}
-  - component: {fileID: 1263128769}
-  - component: {fileID: 1484749620168734}
-  - component: {fileID: 2954196546039947342}
+  - component: {fileID: 1986135100952767910}
+  - component: {fileID: 5637844884351556946}
+  - component: {fileID: 2618618024474197577}
+  - component: {fileID: 4329927836849477936}
+  - component: {fileID: 2823233274442845038}
   m_Layer: 0
   m_Name: Pet
   m_TagString: Player
@@ -152,35 +153,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2515212, y: 1.8285714}
   m_EdgeRadius: 0
---- !u!114 &1263128767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263128766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e67b0781a10990c49b7d59f810b12176, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sky: {fileID: 0}
---- !u!114 &1263128769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263128766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0f9fdf87cbaf4121ac99d1926469499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -1
-  maxSpeed: 2
-  grounded: 0
---- !u!114 &1484749620168734
+--- !u!114 &1986135100952767910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18821150c6a5e46e793ac3c0ef44a52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2954196546039947342
+--- !u!114 &5637844884351556946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,8 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evolveLine:
+  - {fileID: 9100000, guid: 26abef84d4e44b54287044b7db8c6e3a, type: 2}
   - {fileID: 9100000, guid: 4334abe65e518462ca916a6373b35322, type: 2}
-  - {fileID: 9100000, guid: 0c4c6d4c4d29f4b9a96890693350acaa, type: 2}
+  - {fileID: 9100000, guid: 8c0069758fa004e498ebc51fd810f923, type: 2}
   - {fileID: 9100000, guid: 92f42496711834c2587198cb5a3278aa, type: 2}
   - {fileID: 9100000, guid: 7dfb8de55b0434b0699bc6b3bb7198c2, type: 2}
   - {fileID: 9100000, guid: 2e99b3cada1104018979d037767165a3, type: 2}
@@ -228,6 +202,52 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   evolve: 0
-  pet: {fileID: 1263128766}
+  pet: {fileID: 0}
+--- !u!114 &2618618024474197577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263128766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f9fdf87cbaf4121ac99d1926469499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  maxSpeed: 1
+  grounded: 0
+--- !u!114 &4329927836849477936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263128766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67b0781a10990c49b7d59f810b12176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sky: {fileID: 0}
+--- !u!114 &2823233274442845038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263128766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959e72d519cc5564c8da03a77e8d1d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hunger: 0
+  strength: 0
+  careMistake: 0
+  currentEvolution: 0
+  weight: 0
+  days: 0
+  name: 
