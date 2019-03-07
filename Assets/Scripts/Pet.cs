@@ -25,9 +25,9 @@ public class Pet : MonoBehaviour
     private int hungerRation;
 
 
-    MatrixEvolution matrix;
-    PetMovement movement;
-    PetSleeping sleeping;
+    public  MatrixEvolution matrix;
+    public PetMovement movement;
+    public PetSleeping sleeping;
     private bool serverTime;
 
 
@@ -37,17 +37,16 @@ public class Pet : MonoBehaviour
     {
         //borramos los playerPrefs como testeo
         PlayerPrefs.DeleteAll();
-        currentEvolution = 0;
         UpdateStatus();
     }
 
 
     void UpdateStatus()
     {
-        
+
         if (!PlayerPrefs.HasKey("hunger"))
         {
-            hunger = 4;
+            hunger = 5;
             PlayerPrefs.SetInt("hunger", hunger);
         }
         else
@@ -58,7 +57,7 @@ public class Pet : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("strength"))
         {
-            strength = 4;
+            strength = 5;
             PlayerPrefs.SetInt("strength", strength);
         }
         else
@@ -80,7 +79,7 @@ public class Pet : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("currentEvolution"))
         {
-            currentEvolution =0;
+            currentEvolution =-1;
             PlayerPrefs.SetInt("currentEvolution", currentEvolution);
         }
         else
@@ -96,7 +95,6 @@ public class Pet : MonoBehaviour
         }
         else
         {
-            //updates necesarios
             weight = PlayerPrefs.GetInt("weight");
         }
 
@@ -107,7 +105,6 @@ public class Pet : MonoBehaviour
         }
         else
         {
-            //updates necesarios
             days = PlayerPrefs.GetInt("days");
         }
 
@@ -118,7 +115,6 @@ public class Pet : MonoBehaviour
         }
         else
         {
-            //updates necesarios
             name = PlayerPrefs.GetString("name");
         }
 
@@ -126,16 +122,53 @@ public class Pet : MonoBehaviour
         {
             PlayerPrefs.SetString("then", getStringTime());
         }
-       
+
         updateHungry();
         InvokeRepeating("discountHunger", 0f, getRatioTime());
 
         updateStrenght();
         InvokeRepeating("discountStrength", 0f, getRatioTime());
 
+        InvokeRepeating("evolve",0f,getEvolutionTime());
 
-        InvokeRepeating("updateDevice", 0f, 30f);
+        InvokeRepeating("updateDevice", 0f, 60f);
         //InvokeRepeating("discountHunger", 0f, getHungerTime());
+    }
+
+    public int getEvolutionTime(){
+      int evolutionTime = 0;
+      
+      switch (currentEvolution)
+      {
+           case -1:
+                evolutionTime = 60;
+                break;
+          case 0:
+              evolutionTime = 60;
+              break;
+          case 1:
+              evolutionTime = 300;
+              break;
+          case 2:
+              evolutionTime = 300;
+              break;
+          case 3:
+              evolutionTime = 300;
+              break;
+          case 4:
+              evolutionTime = 300;
+              break;
+          default:
+              evolutionTime = 300;
+              break;
+      }
+      return evolutionTime;
+    }
+
+    public void evolve(){
+      matrix.evolve = true;
+      //currentEvolution = matrix.getPhase();
+      PlayerPrefs.SetInt("currentEvolution",currentEvolution);
     }
 
 
@@ -147,8 +180,11 @@ public class Pet : MonoBehaviour
         int ratioTime = 0;
         switch (currentEvolution)
         {
+            case -1:
+                ratioTime = 30;
+                break;
             case 0:
-                ratioTime = 180;
+                ratioTime = 30;
                 break;
             case 1:
                 ratioTime = 600;
@@ -251,6 +287,9 @@ public class Pet : MonoBehaviour
     private void UpdateDevice()
     {
         PlayerPrefs.SetString("then",getStringTime());
+        PlayerPrefs.SetInt("hunger",hunger);
+        PlayerPrefs.SetInt("strength",strength);
+        PlayerPrefs.SetInt("currentEvolution",currentEvolution);
     }
 
 
