@@ -35,7 +35,9 @@ public class Pet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //borramos los playerPrefs como testeo
         PlayerPrefs.DeleteAll();
+        currentEvolution = 0;
         UpdateStatus();
     }
 
@@ -56,7 +58,7 @@ public class Pet : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("strength"))
         {
-            strength = 0;
+            strength = 4;
             PlayerPrefs.SetInt("strength", strength);
         }
         else
@@ -126,28 +128,98 @@ public class Pet : MonoBehaviour
         }
        
         updateHungry();
+        InvokeRepeating("discountHunger", 0f, getRatioTime());
+
+        updateStrenght();
+        InvokeRepeating("discountStrength", 0f, getRatioTime());
+
+
         InvokeRepeating("updateDevice", 0f, 30f);
-        InvokeRepeating("discountHunger", 0f, 10f);
         //InvokeRepeating("discountHunger", 0f, getHungerTime());
     }
 
-    private void discountHunger()
+
+    /**
+     * Metodo encargado de sacar el ratio de tiempo que pasa hambre y necesita vitaminas según el estado de evolución
+     **/
+    private int getRatioTime()
     {
-        hunger -= 1;
-        if (hunger < 0)
+        int ratioTime = 0;
+        switch (currentEvolution)
         {
-            hunger = 0;
+            case 0:
+                ratioTime = 180;
+                break;
+            case 1:
+                ratioTime = 600;
+                break;
+            case 2:
+                ratioTime = 1800;
+                break;
+            case 3:
+                ratioTime = 3600;
+                break;
+            case 4:
+                ratioTime = 4800;
+                break;
+            default:
+                ratioTime = 6000;
+                break;
+        }
+        return ratioTime;
+    }
+
+
+    /**
+     * Metodo encargado de actualizar el hambre según el último horario
+    * registrado en el dispositivo antes de cerrar la aplicación
+    * */
+    private void updateStrenght()
+    {
+        TimeSpan ts = getTimeSpan();
+        int strengthTime = getRatioTime();
+        if ((int)ts.TotalMinutes >= strengthTime)
+        {
+            //cantidad de veces que se ha pasado el tiempo de hambre
+            int numberDown = (int)ts.TotalMinutes / strengthTime;
+            for (int i = 0; i < numberDown; i++)
+            {
+                strength -= 1;
+            }
+        }
+        if (strength < 0)
+        {
+            strength = 0;
+        }
+    }
+    /**
+    * Metodo encargado de descontar unidades de hambre. Este metodo se llamará desde
+    * el método UpdateStatus(), de tal forma que se repetirá cada "n" tiempo
+    * donde n se obtiene del metodo getHungerTime()
+    * */
+    private void discountStrength()
+    {
+        strength -= 1;
+        if (strength < 0)
+        {
+            strength = 0;
         }
     }
 
+
+    /**
+     * Metodo encargado de actualizar el hambre según el último horario
+     * registrado en el dispositivo antes de cerrar la aplicación
+     * */
     private void updateHungry()
     {
         TimeSpan ts = getTimeSpan();
-        int hungryTime= getHungerTime();
+        int hungryTime = getRatioTime();
         if ((int)ts.TotalMinutes >= hungryTime)
         {
-            int numberDown =(int) ts.TotalMinutes / hungryTime;
-            for (int i = 0;i< numberDown; i++)
+            //cantidad de veces que se ha pasado el tiempo de hambre
+            int numberDown = (int)ts.TotalMinutes / hungryTime;
+            for (int i = 0; i < numberDown; i++)
             {
                 hunger -= 1;
             }
@@ -157,38 +229,31 @@ public class Pet : MonoBehaviour
             hunger = 0;
         }
     }
-
-    private int getHungerTime()
+    /**
+     * Metodo encargado de descontar unidades de hambre. Este metodo se llamará desde
+     * el método UpdateStatus(), de tal forma que se repetirá cada "n" tiempo
+     * donde n se obtiene del metodo getHungerTime()
+     * */
+    private void discountHunger()
     {
-        int hungryTime= 0 ;
-        switch (currentEvolution)
+        hunger -= 1;
+        if (hunger < 0)
         {
-            case 0:
-                hungryTime = 3;
-                break;
-            case 1:
-                hungryTime = 10;
-                break;
-            case 2:
-                hungryTime = 30;
-                break;
-            case 3:
-                hungryTime = 60;
-                break;
-            case 4:
-                hungryTime = 80;
-                break;
-            default:
-                hungryTime = 100;
-                break;
+            hunger = 0;
         }
-        return hungryTime;
     }
 
+
+    /**
+     * Metodo encargado de actualizar la fecha del sistema en la información del juego
+     * para actualizar los valores en caso de desconexión
+     * */
     private void UpdateDevice()
     {
         PlayerPrefs.SetString("then",getStringTime());
     }
+
+
 
     private String getStringTime()
     {
