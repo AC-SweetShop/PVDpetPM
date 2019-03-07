@@ -6,19 +6,23 @@ using UnityEngine;
 public class Pet : MonoBehaviour
 {
     [SerializeField]
-    int hunger;
+    public int hunger;
     [SerializeField]
-    int strength;
+    public int strength;
     [SerializeField]
-    int careMistake;
+    public int careMistake;
     [SerializeField]
-    int currentEvolution;
+    public int currentEvolution;
     [SerializeField]
-    int weight;
+    public int weight;
     [SerializeField]
-    int days;
+    public int days;
     [SerializeField]
-    string name;
+    public string name;
+    [SerializeField]
+    public string initialDate;
+
+    private int hungerRation;
 
 
     MatrixEvolution matrix;
@@ -31,15 +35,17 @@ public class Pet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         UpdateStatus();
     }
 
 
     void UpdateStatus()
     {
+        
         if (!PlayerPrefs.HasKey("hunger"))
         {
-            hunger = 0;
+            hunger = 4;
             PlayerPrefs.SetInt("hunger", hunger);
         }
         else
@@ -118,29 +124,43 @@ public class Pet : MonoBehaviour
         {
             PlayerPrefs.SetString("then", getStringTime());
         }
-        else
-        {
-            //updates necesarios
-            name = PlayerPrefs.GetString("name");
-        }
-
+       
         updateHungry();
+        InvokeRepeating("updateDevice", 0f, 30f);
+        InvokeRepeating("discountHunger", 0f, 10f);
+        //InvokeRepeating("discountHunger", 0f, getHungerTime());
+    }
 
-        if (serverTime)
+    private void discountHunger()
+    {
+        hunger -= 1;
+        if (hunger < 0)
         {
-            updateServer();
-        }
-        else
-        {
-            InvokeRepeating("updateDevice", 0f, 30f);
-
+            hunger = 0;
         }
     }
 
     private void updateHungry()
     {
         TimeSpan ts = getTimeSpan();
-        int hungryTime;
+        int hungryTime= getHungerTime();
+        if ((int)ts.TotalMinutes >= hungryTime)
+        {
+            int numberDown =(int) ts.TotalMinutes / hungryTime;
+            for (int i = 0;i< numberDown; i++)
+            {
+                hunger -= 1;
+            }
+        }
+        if (hunger < 0)
+        {
+            hunger = 0;
+        }
+    }
+
+    private int getHungerTime()
+    {
+        int hungryTime= 0 ;
         switch (currentEvolution)
         {
             case 0:
@@ -162,7 +182,7 @@ public class Pet : MonoBehaviour
                 hungryTime = 100;
                 break;
         }
-        hunger -= (int)(ts.TotalMinutes * hungryTime);
+        return hungryTime;
     }
 
     private void UpdateDevice()
@@ -170,32 +190,20 @@ public class Pet : MonoBehaviour
         PlayerPrefs.SetString("then",getStringTime());
     }
 
-    private void updateServer()
-    {
-        throw new NotImplementedException();
-    }
-
-
     private String getStringTime()
     {
         DateTime now = DateTime.Now;
-        return now.Day+":"+now.Hour+":"+now.Minute+":"+now.Second
+        return now.Month+"/"+now.Day+"/"+now.Year + " " + now.Hour + ":" + now.Minute + ":" + now.Second;
     }
+
     private TimeSpan getTimeSpan()
     {
-        if (serverTime)
-        {
-            return new TimeSpan();
-        }
-        else
-        {
-            return DateTime.Now - Convert.ToDateTime(PlayerPrefs.GetString("then"));
-        }
+        return DateTime.Now - Convert.ToDateTime(PlayerPrefs.GetString("then"));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //TODO: probar la implementación del descuento de puntos de hambre llamandolo desde el update
     }
 }
