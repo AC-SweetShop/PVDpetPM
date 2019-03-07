@@ -11,20 +11,13 @@ public class MatrixEvolution : MonoBehaviour
     private int phase = 0;
     public GameObject pet;
     private BoxCollider collider;
+    public Pet petStats;
 
 
     public void Start()
     {
-        /*
-       if(stats.line == "first")
-        {
+        phase = -1;
 
-        }
-        else if(stats.line == "second")
-        {
-
-        }
-        */
     }
 
     public void Update()
@@ -34,15 +27,11 @@ public class MatrixEvolution : MonoBehaviour
             evolve = false;
             phase++;
             pet.GetComponent<Animator>().runtimeAnimatorController = evolveLine[phase];
-            /*
-            //obtenemos el tamano del sprite
-            Vector3 size = pet.GetComponent<SpriteRenderer>().sprite.rect.size;
-
-            //modificamos el collider.
-            var collider = pet.GetComponent<BoxCollider2D>();
-            collider.size = size;
-            */
-
+            petStats.currentEvolution = phase;
         }
+    }
+
+    public int getPhase(){
+      return phase;
     }
 }
