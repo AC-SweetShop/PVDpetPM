@@ -7,11 +7,11 @@ public class PetSleeping : MonoBehaviour
     private Animator anim;
     public ChangeBackground sky;
 
-    private bool sleep;
+    public bool sleep;
     // Start is called before the first frame update
     void Start()
     {
-        sleep = true;
+        sleep = false;
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -22,9 +22,10 @@ public class PetSleeping : MonoBehaviour
         {
             anim.SetBool("isSleep", false);
             sleep = false;
+
         }
-        
-        if(!sky.isDay && !sleep)
+
+        if (!sky.isDay && !sleep)
         {
             anim.SetBool("isSleep", true);
             sleep = true;

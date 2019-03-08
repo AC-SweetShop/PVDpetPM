@@ -30,7 +30,8 @@ public class Pet : MonoBehaviour
     public PetSleeping sleeping;
     public GameObject poop;
     private bool serverTime;
-    private bool startGame;
+    private bool poopStart;
+    private bool evoStart;
 
 
 
@@ -39,7 +40,8 @@ public class Pet : MonoBehaviour
     {
         //borramos los playerPrefs como testeo
         PlayerPrefs.DeleteAll();
-        startGame = true;
+        poopStart = true;
+        evoStart = true;
         UpdateStatus();
     }
 
@@ -82,14 +84,13 @@ public class Pet : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("currentEvolution"))
         {
-            currentEvolution =-1;
+            currentEvolution =0;
             PlayerPrefs.SetInt("currentEvolution", currentEvolution);
         }
         else
         {
             //updates necesarios
-            currentEvolution = PlayerPrefs.GetInt("currentEvolution")-1;
-            updateEvolution();
+            currentEvolution = PlayerPrefs.GetInt("currentEvolution");
 
         }
 
@@ -134,8 +135,8 @@ public class Pet : MonoBehaviour
         updateStrenght();
         InvokeRepeating("discountStrength", 0f, getRatioTime());
 
+        updateEvolution();
         InvokeRepeating("evolve",0f,getEvolutionTime());
-
         InvokeRepeating("UpdateDevice", 0f,30);
 
         updatePoop();
@@ -162,15 +163,14 @@ public class Pet : MonoBehaviour
 
     public void MakePoop()
     {
-        if (!startGame)
+        if (!poopStart)
         {
             GameObject poopAux = Instantiate(poop);
             float posX = gameObject.GetComponent<Transform>().transform.position.x;
             poopAux.GetComponent<Transform>().transform.position = new Vector3(posX, -1.7f, 0);
-            Instantiate(poopAux);
             poopAux.SetActive(true);
         }
-        startGame = false;
+        poopStart = false;
     }
 
 
@@ -211,9 +211,13 @@ public class Pet : MonoBehaviour
     }
 
     public void evolve(){
-      matrix.evolve = true;
-      //currentEvolution = matrix.getPhase();
-      PlayerPrefs.SetInt("currentEvolution",currentEvolution);
+        if (!evoStart)
+        {
+            matrix.evolve = true;
+            //currentEvolution = matrix.getPhase();
+            PlayerPrefs.SetInt("currentEvolution", currentEvolution);
+        }
+        evoStart = false;
     }
 
     /**
@@ -233,6 +237,10 @@ public class Pet : MonoBehaviour
             {
                 currentEvolution += 1;
             }
+        }
+        if (currentEvolution == -1)
+        {
+            currentEvolution = 0;
         }
         matrix.phase = currentEvolution;
         matrix.foreceEvolve();

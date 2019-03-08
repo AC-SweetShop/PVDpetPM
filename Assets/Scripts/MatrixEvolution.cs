@@ -15,7 +15,7 @@ public class MatrixEvolution : MonoBehaviour
 
     public void Start()
     {
-        phase = -1;
+        phase = 0;
 
     }
 

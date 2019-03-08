@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyPoop : MonoBehaviour
+public class DestroyWave : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class DestroyPoop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "wave")
+        if (other.gameObject.tag == "wave")
         {
             Destroy(gameObject);
         }
