@@ -131,8 +131,7 @@ public class Pet : MonoBehaviour
 
         InvokeRepeating("evolve",0f,getEvolutionTime());
 
-        InvokeRepeating("updateDevice", 0f, 60f);
-        //InvokeRepeating("discountHunger", 0f, getHungerTime());
+        InvokeRepeating("UpdateDevice", 0f,30);
     }
 
     public int getEvolutionTime(){
@@ -144,16 +143,16 @@ public class Pet : MonoBehaviour
                 evolutionTime = 60;
                 break;
           case 0:
-              evolutionTime = 60;
+              evolutionTime = 120;
               break;
           case 1:
               evolutionTime = 300;
               break;
           case 2:
-              evolutionTime = 300;
+              evolutionTime = 600;
               break;
           case 3:
-              evolutionTime = 300;
+              evolutionTime = 600;
               break;
           case 4:
               evolutionTime = 300;
