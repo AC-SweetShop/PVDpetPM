@@ -3,7 +3,7 @@ guid: c585ceacced09e448b16f4168627a146
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 22
+  fontSize: 92
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
@@ -11,9 +11,10 @@ TrueTypeFontImporter:
   fontName: Pixel Digivolve
   fontNames:
   - Pixel Digivolve
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d7e14e2f3c6c2434a95feb85c384eb73, type: 3}
   customCharacters: 
-  fontRenderingMode: 1
+  fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
