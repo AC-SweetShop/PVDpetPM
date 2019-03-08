@@ -19,7 +19,16 @@ public class StartScene : MonoBehaviour
         if (button.pressed)
         {
             button.pressed = false;
-            SceneManager.LoadScene("seleccion-digimon");
+            if (PlayerPrefs.HasKey("currentEvolution"))
+            {
+                SceneManager.LoadScene("interfaz-principal-animada");
+
+            }
+            else
+            {
+                SceneManager.LoadScene("seleccion-digimon");
+
+            }
         }
     }
 }

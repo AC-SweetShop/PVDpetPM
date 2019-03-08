@@ -12,6 +12,8 @@ public class PetMovement : MonoBehaviour
     public bool grounded;
     public bool isFree = true;
 
+    public PetSleeping sleeping;
+
     private CheckGround ground;
 
     private Rigidbody2D rb2d;
@@ -25,7 +27,7 @@ public class PetMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grounded && isFree)
+        if (grounded && isFree && !sleeping.sleep)
         {
             //anadimos al rigidbody del pet una fuerza con un vector a la derecha por la velocidad
             rb2d.AddForce(Vector2.right * speed);
@@ -55,10 +57,11 @@ public class PetMovement : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
-        if (!isFree)
+        if (!isFree || sleeping.sleep)
         {
             rb2d.velocity = new Vector2(0, 0);
         }
+
 
     }
 }

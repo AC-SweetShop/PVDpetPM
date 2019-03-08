@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SelectionEggLine2 : MonoBehaviour
+public class ResetAll : MonoBehaviour
 {
-    public InteractiveElement button;
 
+    public InteractiveElement button;
+    // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -18,7 +17,8 @@ public class SelectionEggLine2 : MonoBehaviour
         if (button.pressed)
         {
             button.pressed = false;
-            SceneManager.LoadScene("interfaz-principal-animada-egg");
+            PlayerPrefs.DeleteAll();
+
         }
     }
 }

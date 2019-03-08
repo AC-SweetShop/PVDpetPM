@@ -39,7 +39,7 @@ public class Pet : MonoBehaviour
     void Start()
     {
         //borramos los playerPrefs como testeo
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         poopStart = true;
         evoStart = true;
         UpdateStatus();
@@ -168,7 +168,6 @@ public class Pet : MonoBehaviour
             GameObject poopAux = Instantiate(poop);
             float posX = gameObject.GetComponent<Transform>().transform.position.x;
             poopAux.GetComponent<Transform>().transform.position = new Vector3(posX, -1.7f, 0);
-            Instantiate(poopAux);
             poopAux.SetActive(true);
         }
         poopStart = false;
