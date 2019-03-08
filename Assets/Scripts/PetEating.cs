@@ -6,12 +6,13 @@ public class PetEating : MonoBehaviour
 {
     public Pet pet;
 
-    public Texture[] mealsTexture;
     public Texture[] vitamineTexture;
 
     private GameObject meal;
     private GameObject vitamine;
 
+    public RuntimeAnimatorController mealAnimation;
+    public RuntimeAnimatorController vitamineAnimation;
 
     public PetMovement petMovement;
 
@@ -38,70 +39,55 @@ public class PetEating : MonoBehaviour
         if (collision.gameObject.CompareTag("meal"))
         {
             petMovement.isFree = false;
-            meal = collision.gameObject;
             gameObject.GetComponent<Animator>().SetBool("isEating", true);
-            InvokeRepeating("PetEatingMeal", 0f, 1.5f);
+
+
+            meal = collision.gameObject;
+            meal.GetComponent<Rigidbody2D>().velocity= new Vector2(0,0);
+            meal.GetComponent<Animator>().runtimeAnimatorController = mealAnimation;
+            Invoke("PetEatingMeal", 3f);
+            
         }
 
         if (collision.gameObject.CompareTag("vitamine"))
         {
             petMovement.isFree = false;
-            vitamine = collision.gameObject;
             gameObject.GetComponent<Animator>().SetBool("isEating", true);
-            InvokeRepeating("PetEatingVitamine", 0f, 1.5f);
+
+
+            vitamine = collision.gameObject;
+            vitamine.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            vitamine.GetComponent<Animator>().runtimeAnimatorController = vitamineAnimation;
+            Invoke("PetEatingVitamine",3f);
         }
     }
 
     private void PetEatingMeal()
-    {
-        
-            if (foodCount < 3)
-            {
-            
-            if (pet.hunger < 4)
-            {
-                pet.hunger += 1;
-            }
-                Renderer rend = meal.GetComponent<SpriteRenderer>();
-                rend.material.mainTexture = mealsTexture[foodCount];
-                foodCount++;
-            }
-            else
-            {
-            Destroy(meal);
-                CancelInvoke("PetEatingMeal");
-                gameObject.GetComponent<Animator>().SetBool("isEating", false);
-                petMovement.isFree = true;
-                foodCount = 0;
-            generator.hasFood = false;
-            }
-           
-        
+    {           
+        if (pet.hunger < 4)
+        {
+            pet.hunger += 1;
+        }
+        Destroy(meal);
+        gameObject.GetComponent<Animator>().SetBool("isEating", false);
+        petMovement.isFree = true;
+        generator.hasFood = false;
+
+
     }
 
     private void PetEatingVitamine()
     {
-        
-            if (vitamCount < 3)
-            {
-            if (pet.strength < 4)
-            {
-                pet.strength += 1;
-            }
-            Renderer rend = vitamine.GetComponent<SpriteRenderer>();
-                rend.material.mainTexture = vitamineTexture[vitamCount];
-                vitamCount++;
-            }
-            else
-            {
-                 Destroy(vitamine);
-                CancelInvoke("PetEatingVitamine");
-                gameObject.GetComponent<Animator>().SetBool("isEating", false);
-                petMovement.isFree = true;
-                vitamCount = 0;
-                generator.hasVitamine = false;
 
-            }
+        if (pet.strength < 4)
+        {
+            pet.strength += 1;
+        }
+        Destroy(vitamine);
+        gameObject.GetComponent<Animator>().SetBool("isEating", false);
+        petMovement.isFree = true;
+        generator.hasVitamine = false;
+
     }
-    
+
 }

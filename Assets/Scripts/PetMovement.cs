@@ -55,5 +55,10 @@ public class PetMovement : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
+        if (!isFree)
+        {
+            rb2d.velocity = new Vector2(0, 0);
+        }
+
     }
 }
