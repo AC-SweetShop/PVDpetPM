@@ -10,13 +10,13 @@ public class ActivatePanel : MonoBehaviour
     public GameObject panel;
     public InteractiveElement panelButton;
     public InteractiveElement button;
-    public DialogManager dialogManager;
 
     public Text name;
     public Text hunger;
     public Text strength;
     public Text mistake;
     public Text evolutionLvl;
+    private bool thisOpen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class ActivatePanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (button.pressed && !dialogManager.dialogOpen)
+        if (button.pressed && !thisOpen)
         {
             button.pressed = false;
             name.text = "NAME:";
@@ -41,11 +41,13 @@ public class ActivatePanel : MonoBehaviour
             mistake.text += "  "+ pet.careMistake;
             evolutionLvl.text += pet.currentEvolution;
             panel.SetActive(true);
-            dialogManager.dialogOpen = true;
+            thisOpen = true;
         }
-        if (panelButton.pressed || dialogManager.dialogOpen)
+        if((panelButton.pressed && thisOpen))
         {
             panelButton.pressed = false;
+            thisOpen = false;
+
             panel.SetActive(false);
         }
     }

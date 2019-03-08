@@ -10,6 +10,7 @@ public class PetMovement : MonoBehaviour
     public float maxSpeed = 1f;
 
     public bool grounded;
+    public bool isFree = true;
 
     private CheckGround ground;
 
@@ -22,9 +23,9 @@ public class PetMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (grounded)
+        if (grounded && isFree)
         {
             //anadimos al rigidbody del pet una fuerza con un vector a la derecha por la velocidad
             rb2d.AddForce(Vector2.right * speed);

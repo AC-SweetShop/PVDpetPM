@@ -12,11 +12,12 @@ public class FoodDialog : MonoBehaviour
     public InteractiveElement buttonVitamin;
 
 
-    private bool dialogOpen;
+
+    private bool thisOpen;
     // Start is called before the first frame update
     void Start()
     {
-        dialogOpen = false;
+        thisOpen = false;
         panel.SetActive(false);
 
     }
@@ -24,17 +25,18 @@ public class FoodDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (button.pressed && !dialogOpen)
+        if (button.pressed && !thisOpen)
         {
            button.pressed = false;
-            dialogOpen = true;
+            thisOpen = true;
            panel.SetActive(true);
            
-        }else if(button.pressed && dialogOpen)
+        }else if(button.pressed && thisOpen)
         {
             button.pressed = false;
-            dialogOpen = false;
+            thisOpen = false;
             panel.SetActive(false);
         }
+
     }
 }

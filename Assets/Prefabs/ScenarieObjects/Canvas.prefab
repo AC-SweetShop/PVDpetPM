@@ -364,7 +364,6 @@ GameObject:
   - component: {fileID: 5955671878080189719}
   - component: {fileID: 6732557695846225752}
   - component: {fileID: 2746815235971331166}
-  - component: {fileID: 3356893416830961777}
   m_Layer: 0
   m_Name: FoodDialog
   m_TagString: Untagged
@@ -430,21 +429,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3356893416830961777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3356893416830961776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae2626cf6d8b2241ba0303746392e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 8314566670333731488}
-  buttonMeal: {fileID: 5204660423614984989}
-  buttonVitamin: {fileID: 9102622033612968166}
 --- !u!1 &3724695843235072965
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +840,7 @@ GameObject:
   - component: {fileID: 8314566670333731486}
   - component: {fileID: 8314566670333731487}
   - component: {fileID: 8314566670333731488}
+  - component: {fileID: 8314566670333731489}
   m_Layer: 0
   m_Name: Food
   m_TagString: Untagged
@@ -933,6 +918,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressed: 0
+--- !u!114 &8314566670333731489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314566670333731485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae2626cf6d8b2241ba0303746392e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 8314566670333731488}
+  panel: {fileID: 3356893416830961776}
+  buttonMeal: {fileID: 5204660423614984989}
+  buttonVitamin: {fileID: 9102622033612968166}
 --- !u!1 &8314566670383861367
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +946,7 @@ GameObject:
   - component: {fileID: 8314566670383861363}
   - component: {fileID: 8314566670383861360}
   - component: {fileID: 8314566670383861361}
+  - component: {fileID: 8314566670383861368}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1041,6 +1043,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8314566670383861368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314566670383861367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c0241be824ad848a7f987fac4ba859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogOpen: 0
 --- !u!1 &8314566670833563722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1070,6 @@ GameObject:
   - component: {fileID: 89272373}
   - component: {fileID: 89272374}
   - component: {fileID: 7532825333666104071}
-  - component: {fileID: 8235778473662661792}
   m_Layer: 0
   m_Name: Stats
   m_TagString: Untagged
@@ -1169,25 +1183,12 @@ MonoBehaviour:
   pet: {fileID: 0}
   panel: {fileID: 546347841920793610}
   panelButton: {fileID: 2599597731317218467}
-  button: {fileID: 8235778473662661792}
+  button: {fileID: 8235778473662661792, guid: 2d79e9a571d1e77428b6d156afb3cd13, type: 3}
   name: {fileID: 402725352}
   hunger: {fileID: 7885891052295388608}
   strength: {fileID: 6724145011106009507}
   mistake: {fileID: 5211632561069619674}
   evolutionLvl: {fileID: 3542727023288015165}
---- !u!114 &8235778473662661792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8314566670833563722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cdb3856739fbcd4284cfec3a0538f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pressed: 0
 --- !u!1 &8314566670990426607
 GameObject:
   m_ObjectHideFlags: 0
