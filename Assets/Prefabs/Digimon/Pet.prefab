@@ -24,7 +24,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1263128768
 Transform:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 1263128766}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4334abe65e518462ca916a6373b35322, type: 2}
+  m_Controller: {fileID: 9100000, guid: 26abef84d4e44b54287044b7db8c6e3a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -178,12 +178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   evolveLine:
-  - {fileID: 9100000, guid: 26abef84d4e44b54287044b7db8c6e3a, type: 2}
   - {fileID: 9100000, guid: 4334abe65e518462ca916a6373b35322, type: 2}
   - {fileID: 9100000, guid: 8c0069758fa004e498ebc51fd810f923, type: 2}
   - {fileID: 9100000, guid: 92f42496711834c2587198cb5a3278aa, type: 2}
   - {fileID: 9100000, guid: 7dfb8de55b0434b0699bc6b3bb7198c2, type: 2}
   - {fileID: 9100000, guid: 2e99b3cada1104018979d037767165a3, type: 2}
+  - {fileID: 9100000, guid: 1a64fa4e0e9ab4ea5b28e9d51b34227b, type: 2}
   - {fileID: 9100000, guid: 1a64fa4e0e9ab4ea5b28e9d51b34227b, type: 2}
   - {fileID: 0}
   - {fileID: 0}
@@ -203,7 +203,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   evolve: 0
-  pet: {fileID: 0}
+  pet: {fileID: 1263128766}
+  petStats: {fileID: 2823233274442845038}
 --- !u!114 &2618618024474197577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,3 +252,7 @@ MonoBehaviour:
   weight: 0
   days: 0
   name: 
+  initialDate: 
+  matrix: {fileID: 5637844884351556946}
+  movement: {fileID: 2618618024474197577}
+  sleeping: {fileID: 4329927836849477936}

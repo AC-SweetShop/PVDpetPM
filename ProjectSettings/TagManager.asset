@@ -7,6 +7,8 @@ TagManager:
   - ground
   - sky
   - egg
+  - meal
+  - vitamine
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,6 @@ public class MatrixEvolution : MonoBehaviour
     public bool evolve = false;
     private int phase = 0;
     public GameObject pet;
-    private BoxCollider collider;
     public Pet petStats;
 
 
