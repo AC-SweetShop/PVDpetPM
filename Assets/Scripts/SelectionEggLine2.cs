@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartScene : MonoBehaviour
+public class SelectionEggLine2 : MonoBehaviour
 {
-    // Start is called before the first frame update
     public InteractiveElement button;
+
     void Start()
     {
-        
         
     }
 
@@ -19,7 +18,7 @@ public class StartScene : MonoBehaviour
         if (button.pressed)
         {
             button.pressed = false;
-            SceneManager.LoadScene("seleccion-digimon");
+            SceneManager.LoadScene("interfaz-principal-animada-linea2");
         }
     }
 }
