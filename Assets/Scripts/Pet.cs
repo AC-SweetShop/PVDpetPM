@@ -28,7 +28,9 @@ public class Pet : MonoBehaviour
     public  MatrixEvolution matrix;
     public PetMovement movement;
     public PetSleeping sleeping;
+    public GameObject poop;
     private bool serverTime;
+    private bool startGame;
 
 
 
@@ -37,6 +39,7 @@ public class Pet : MonoBehaviour
     {
         //borramos los playerPrefs como testeo
         PlayerPrefs.DeleteAll();
+        startGame = true;
         UpdateStatus();
     }
 
@@ -85,7 +88,9 @@ public class Pet : MonoBehaviour
         else
         {
             //updates necesarios
-            currentEvolution = PlayerPrefs.GetInt("currentEvolution");
+            currentEvolution = PlayerPrefs.GetInt("currentEvolution")-1;
+            updateEvolution();
+
         }
 
         if (!PlayerPrefs.HasKey("weight"))
@@ -132,7 +137,48 @@ public class Pet : MonoBehaviour
         InvokeRepeating("evolve",0f,getEvolutionTime());
 
         InvokeRepeating("UpdateDevice", 0f,30);
+
+        updatePoop();
+        InvokeRepeating("MakePoop", 0f, getRatioTime());
     }
+
+
+
+    public void updatePoop()
+    {
+        TimeSpan ts = getTimeSpan();
+        int poopTime = getRatioTime();
+        if ((int)ts.TotalMinutes >= poopTime)
+        {
+            //cantidad de veces que se ha pasado el tiempo de hambre
+            int numberDown = (int)ts.TotalMinutes / poopTime;
+            for (int i = 0; i < numberDown; i++)
+            {
+                Instantiate(poop);
+            }
+        }
+       
+    }
+
+    public void MakePoop()
+    {
+        if (!startGame)
+        {
+            GameObject poopAux = Instantiate(poop);
+            float posX = gameObject.GetComponent<Transform>().transform.position.x;
+            poopAux.GetComponent<Transform>().transform.position = new Vector3(posX, -1.7f, 0);
+            Instantiate(poopAux);
+            poopAux.SetActive(true);
+        }
+        startGame = false;
+    }
+
+
+
+
+    /**
+     *  metodo encargado de obtener el tiempo de evolución segun el estado de evolución en el que se encuentre
+     * */
 
     public int getEvolutionTime(){
       int evolutionTime = 0;
@@ -140,8 +186,8 @@ public class Pet : MonoBehaviour
       switch (currentEvolution)
       {
            case -1:
-                evolutionTime = 60;
-                break;
+              evolutionTime = 60;
+              break;
           case 0:
               evolutionTime = 120;
               break;
@@ -168,6 +214,28 @@ public class Pet : MonoBehaviour
       matrix.evolve = true;
       //currentEvolution = matrix.getPhase();
       PlayerPrefs.SetInt("currentEvolution",currentEvolution);
+    }
+
+    /**
+    * Metodo encargado de actualizar el hambre según el último horario
+   * registrado en el dispositivo antes de cerrar la aplicación
+   * */
+    private void updateEvolution()
+    {
+        TimeSpan ts = getTimeSpan();
+        int evoTime = getRatioTime();
+        if ((int)ts.TotalMinutes >= evoTime)
+        {
+            //cantidad de veces que se ha pasado el tiempo de evolucion
+            int numberDown = (int)ts.TotalMinutes / evoTime;
+
+            for (int i = 0; i < numberDown; i++)
+            {
+                currentEvolution += 1;
+            }
+        }
+        matrix.phase = currentEvolution;
+        matrix.foreceEvolve();
     }
 
 
@@ -285,6 +353,7 @@ public class Pet : MonoBehaviour
      * */
     private void UpdateDevice()
     {
+        Debug.Log("partida guardada");
         PlayerPrefs.SetString("then",getStringTime());
         PlayerPrefs.SetInt("hunger",hunger);
         PlayerPrefs.SetInt("strength",strength);
