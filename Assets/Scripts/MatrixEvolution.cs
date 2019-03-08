@@ -8,7 +8,7 @@ public class MatrixEvolution : MonoBehaviour
 
   //  public Stats stats;
     public bool evolve = false;
-    private int phase = 0;
+    public int phase = 0;
     public GameObject pet;
     public Pet petStats;
 
@@ -28,6 +28,11 @@ public class MatrixEvolution : MonoBehaviour
             pet.GetComponent<Animator>().runtimeAnimatorController = evolveLine[phase];
             petStats.currentEvolution = phase;
         }
+    }
+
+    public void foreceEvolve()
+    {
+        pet.GetComponent<Animator>().runtimeAnimatorController = evolveLine[phase];
     }
 
     public int getPhase(){

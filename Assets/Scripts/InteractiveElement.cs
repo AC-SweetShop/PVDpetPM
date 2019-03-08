@@ -12,6 +12,12 @@ public class InteractiveElement : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         pressed = true;
+
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        if (audio != null) {
+            audio.Play();
+            
+        }
     }
 
 

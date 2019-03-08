@@ -12,19 +12,20 @@ GameObject:
   - component: {fileID: 1263128774}
   - component: {fileID: 1263128772}
   - component: {fileID: 1263128773}
-  - component: {fileID: 3428033689378341990}
   - component: {fileID: 1986135100952767910}
   - component: {fileID: 5637844884351556946}
   - component: {fileID: 2618618024474197577}
   - component: {fileID: 4329927836849477936}
   - component: {fileID: 2823233274442845038}
+  - component: {fileID: 1304336807}
+  - component: {fileID: 1304336812}
   m_Layer: 0
   m_Name: Pet
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1263128768
 Transform:
   m_ObjectHideFlags: 0
@@ -117,8 +118,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 2.288496
+  m_UseAutoMass: 0
+  m_Mass: 200
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -127,32 +128,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3428033689378341990
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263128766}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.055485547, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8285714, y: 1.8285714}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.2515212, y: 1.8285714}
-  m_EdgeRadius: 0
 --- !u!114 &1986135100952767910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +195,7 @@ MonoBehaviour:
   speed: 1
   maxSpeed: 1
   grounded: 0
+  isFree: 1
 --- !u!114 &4329927836849477936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,3 +232,42 @@ MonoBehaviour:
   matrix: {fileID: 5637844884351556946}
   movement: {fileID: 2618618024474197577}
   sleeping: {fileID: 4329927836849477936}
+--- !u!58 &1304336807
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263128766}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06, y: -0.4}
+  serializedVersion: 2
+  m_Radius: 0.64
+--- !u!114 &1304336812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263128766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8112cd00d6aaa342be31316fff6ce63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pet: {fileID: 2823233274442845038}
+  mealsTexture:
+  - {fileID: 2800000, guid: 136ca20400d2e314ab6f225187a067eb, type: 3}
+  - {fileID: 2800000, guid: bd844805285c1d44095313e6898747fb, type: 3}
+  - {fileID: 2800000, guid: 2fe586beae8b5b44ab849f6701144823, type: 3}
+  vitamineTexture:
+  - {fileID: 2800000, guid: e91135be88d3afc4e92a3d996ae7ec89, type: 3}
+  - {fileID: 2800000, guid: 913e7f8f0cf78b541b98c1d2f94e4576, type: 3}
+  - {fileID: 2800000, guid: 913e7f8f0cf78b541b98c1d2f94e4576, type: 3}
+  petMovement: {fileID: 2618618024474197577}
+  generator: {fileID: 0}
