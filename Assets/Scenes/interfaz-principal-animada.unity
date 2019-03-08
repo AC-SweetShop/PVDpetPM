@@ -1711,6 +1711,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8314566671678577525, guid: 2d79e9a571d1e77428b6d156afb3cd13,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8314566670383861366, guid: 2d79e9a571d1e77428b6d156afb3cd13,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1870,6 +1875,27 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 44.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8314566671513182218, guid: 2d79e9a571d1e77428b6d156afb3cd13,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314566671513182218, guid: 2d79e9a571d1e77428b6d156afb3cd13,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314566671513182218, guid: 2d79e9a571d1e77428b6d156afb3cd13,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8314566671790024064, guid: 2d79e9a571d1e77428b6d156afb3cd13,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 719c56749e5670343887eb61583a18a1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d79e9a571d1e77428b6d156afb3cd13, type: 3}
 --- !u!114 &9102622033612968166 stripped
