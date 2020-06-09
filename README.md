@@ -33,7 +33,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Change Log
 
-* 0.0.0
+* 1.0.0
 
 ## Authors
 
